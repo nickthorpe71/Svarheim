@@ -8,6 +8,8 @@ public class Planet : MonoBehaviour
     public ShapeSettings shapeSettings;
     public ColorSettings colorSettings;
 
+    ShapeGenerator shapeGenerator;
+
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
@@ -20,6 +22,7 @@ public class Planet : MonoBehaviour
 
     void Initialize()
     {
+        shapeGenerator = new ShapeGenerator(shapeSettings);
         if (meshFilters == null || meshFilters.Length == 0)
         {
             meshFilters = new MeshFilter[6];
@@ -40,8 +43,15 @@ public class Planet : MonoBehaviour
                 meshFilters[i].sharedMesh = new Mesh();
             }
 
-            terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh, resolution, directions[i]);
+            terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh, resolution, directions[i]);
         }
+    }
+
+    public void GeneratePlanet()
+    {
+        Initialize();
+        GenerateMesh();
+        GenerateColors();
     }
 
     public void OnShapeSettingsUpdated()
