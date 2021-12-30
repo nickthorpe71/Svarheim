@@ -16,8 +16,7 @@ public class Planet : MonoBehaviour
 
     private void OnValidate()
     {
-        Initialize();
-        GenerateMesh();
+        GeneratePlanet();
     }
 
     void Initialize()
