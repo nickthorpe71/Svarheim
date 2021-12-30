@@ -5,8 +5,12 @@ public class Planet : MonoBehaviour
     [Header("Settings")]
     [Range(2, 256)]
     public int resolution = 10;
+
     public ShapeSettings shapeSettings;
     public ColorSettings colorSettings;
+
+    [HideInInspector] public bool shapeSettingsFoldout;
+    [HideInInspector] public bool colorSettingsFoldout;
 
     ShapeGenerator shapeGenerator;
 

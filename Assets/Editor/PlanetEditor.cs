@@ -10,19 +10,24 @@ public class PlanetEditor : Editor
     {
         base.OnInspectorGUI();
 
-        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated);
-        DrawSettingsEditor(planet.colorSettings, planet.OnColorSettingsUpdated);
+        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout);
+        DrawSettingsEditor(planet.colorSettings, planet.OnColorSettingsUpdated, ref planet.colorSettingsFoldout);
     }
 
-    void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated)
+    void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout)
     {
         using (var check = new EditorGUI.ChangeCheckScope())
         {
-            Editor editor = CreateEditor(settings);
-            editor.OnInspectorGUI();
+            foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
 
-            if (check.changed && onSettingsUpdated != null)
-                onSettingsUpdated();
+            if (foldout)
+            {
+                Editor editor = CreateEditor(settings);
+                editor.OnInspectorGUI();
+
+                if (check.changed && onSettingsUpdated != null)
+                    onSettingsUpdated();
+            }
         }
     }
 
