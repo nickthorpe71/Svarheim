@@ -5,29 +5,39 @@ using UnityEngine;
 public class PlanetEditor : Editor
 {
     Planet planet;
+    Editor shapeEditor;
+    Editor colorEditor;
 
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
-
-        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout);
-        DrawSettingsEditor(planet.colorSettings, planet.OnColorSettingsUpdated, ref planet.colorSettingsFoldout);
-    }
-
-    void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout)
-    {
         using (var check = new EditorGUI.ChangeCheckScope())
         {
-            foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
+            base.OnInspectorGUI();
+            if (check.changed)
+                planet.GeneratePlanet();
+        }
 
-            if (foldout)
-            {
-                Editor editor = CreateEditor(settings);
-                editor.OnInspectorGUI();
+        if (GUILayout.Button("Generate Planet"))
+            planet.GeneratePlanet();
 
-                if (check.changed && onSettingsUpdated != null)
-                    onSettingsUpdated();
-            }
+        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout, ref shapeEditor);
+        DrawSettingsEditor(planet.colorSettings, planet.OnColorSettingsUpdated, ref planet.colorSettingsFoldout, ref colorEditor);
+    }
+
+    void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
+    {
+        if (settings == null) return;
+
+        foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
+        if (!foldout) return;
+
+        using (var check = new EditorGUI.ChangeCheckScope())
+        {
+            CreateCachedEditor(settings, null, ref editor);
+            editor.OnInspectorGUI();
+
+            if (check.changed && onSettingsUpdated != null)
+                onSettingsUpdated();
         }
     }
 
