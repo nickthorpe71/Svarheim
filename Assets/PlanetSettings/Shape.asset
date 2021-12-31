@@ -18,32 +18,62 @@ MonoBehaviour:
     useFirstLayerAsMask: 0
     noiseSettings:
       filterType: 0
-      strength: 0.15
-      numLayers: 4
-      baseRoughness: 0.95
-      roughness: 2.09
-      persistence: 0.52
-      center: {x: 0, y: 0, z: 5}
-      minValue: 0.9
-  - enabled: 0
+      simpleNoiseSettings:
+        strength: 0.06
+        numLayers: 4
+        baseRoughness: 1.2
+        roughness: 2
+        persistence: 0.4
+        center: {x: 1.11, y: 0.92, z: -0.39}
+        minValue: 0.87
+      ridgidNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 1
+        persistence: 0.5
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0
+        weightMultiplier: 0.8
+  - enabled: 1
     useFirstLayerAsMask: 1
     noiseSettings:
       filterType: 0
-      strength: 0.21
-      numLayers: 4
-      baseRoughness: 1.08
-      roughness: 2.34
-      persistence: 0.5
-      center: {x: 0, y: 0, z: -4.9}
-      minValue: 1.21
+      simpleNoiseSettings:
+        strength: 2.62
+        numLayers: 5
+        baseRoughness: 2.33
+        roughness: 4.53
+        persistence: 0.25
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0
+      ridgidNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 1
+        persistence: 0.5
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0
+        weightMultiplier: 0.8
   - enabled: 1
     useFirstLayerAsMask: 1
     noiseSettings:
       filterType: 1
-      strength: 0.05
-      numLayers: 3
-      baseRoughness: 0.98
-      roughness: 2.81
-      persistence: 0.71
-      center: {x: 0, y: 0, z: 5}
-      minValue: 1.03
+      simpleNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 1
+        persistence: 0.5
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0
+      ridgidNoiseSettings:
+        strength: 2
+        numLayers: 5
+        baseRoughness: 2.06
+        roughness: 1.5
+        persistence: 0.5
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0.67
+        weightMultiplier: 5.67
