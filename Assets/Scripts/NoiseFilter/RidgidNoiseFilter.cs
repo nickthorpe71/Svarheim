@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class RidgidNoiseFilter : INoiseFilter
 {
+
     NoiseSettings.RidgidNoiseSettings settings;
     Noise noise = new Noise();
 
@@ -29,7 +30,7 @@ public class RidgidNoiseFilter : INoiseFilter
             amplitude *= settings.persistence;
         }
 
-        noiseValue = Mathf.Max(0, noiseValue - settings.minValue);
+        noiseValue = noiseValue - settings.minValue;
         return noiseValue * settings.strength;
     }
 }

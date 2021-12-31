@@ -3,8 +3,10 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class ColorSettings : ScriptableObject
 {
+
     public Material planetMaterial;
     public BiomeColorSettings biomeColorSettings;
+    public Gradient oceanColor;
 
     [System.Serializable]
     public class BiomeColorSettings
@@ -27,4 +29,5 @@ public class ColorSettings : ScriptableObject
             public float tintPercent;
         }
     }
+
 }

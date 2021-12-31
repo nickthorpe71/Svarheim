@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
+
     [Range(2, 256)]
     public int resolution = 10;
     public bool autoUpdate = true;
@@ -97,7 +98,6 @@ public class Planet : MonoBehaviour
     void GenerateColors()
     {
         colorGenerator.UpdateColors();
-
         for (int i = 0; i < 6; i++)
         {
             if (meshFilters[i].gameObject.activeSelf)
