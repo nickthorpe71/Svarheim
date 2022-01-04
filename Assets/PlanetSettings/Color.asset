@@ -91,7 +91,7 @@ MonoBehaviour:
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 386
         ctime1: 6361
-        ctime2: 23516
+        ctime2: 19275
         ctime3: 65535
         ctime4: 65535
         ctime5: 0
@@ -136,18 +136,18 @@ MonoBehaviour:
   oceanColor:
     serializedVersion: 2
     key0: {r: 0, g: 0.042932432, b: 0.254717, a: 1}
-    key1: {r: 0.1428516, g: 0.22956808, b: 0.6018701, a: 1}
+    key1: {r: 0.0729797, g: 0.13023911, b: 0.3773585, a: 1}
     key2: {r: 0.1475169, g: 0.2356633, b: 0.6132076, a: 0}
     key3: {r: 0.25364897, g: 0.72377515, b: 0.9433962, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0.25364897, g: 0.72377515, b: 0.9433962, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 47224
+    ctime1: 48766
     ctime2: 58403
     ctime3: 65535
-    ctime4: 0
+    ctime4: 65535
     ctime5: 0
     ctime6: 0
     ctime7: 0
