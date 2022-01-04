@@ -41,7 +41,7 @@ namespace UnityEditor.AzureSky
         private void OnEnable()
         {
             // Get target
-            m_target = (AzureEnvironmentController) target;
+            m_target = (AzureEnvironmentController)target;
 
             // Find the serialized properties
             m_reflectionProbe = serializedObject.FindProperty("reflectionProbe");
@@ -54,7 +54,7 @@ namespace UnityEditor.AzureSky
             m_environmentAmbientColor = serializedObject.FindProperty("environmentAmbientColor");
             m_environmentEquatorColor = serializedObject.FindProperty("environmentEquatorColor");
             m_environmentGroundColor = serializedObject.FindProperty("environmentGroundColor");
-    }
+        }
 
         public override void OnInspectorGUI()
         {
@@ -103,7 +103,7 @@ namespace UnityEditor.AzureSky
                     case AzureReflectionProbeState.On:
                         m_target.reflectionProbe.gameObject.SetActive(true);
                         break;
-                    
+
                     case AzureReflectionProbeState.Off:
                         m_target.reflectionProbe.gameObject.SetActive(false);
                         break;

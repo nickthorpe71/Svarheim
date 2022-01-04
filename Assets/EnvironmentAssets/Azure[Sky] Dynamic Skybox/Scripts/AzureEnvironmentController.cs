@@ -17,7 +17,7 @@ namespace UnityEngine.AzureSky
         public Color environmentAmbientColor = Color.white;
         public Color environmentEquatorColor = Color.white;
         public Color environmentGroundColor = Color.white;
-        
+
         private void Awake()
         {
             if (state != AzureReflectionProbeState.On)
@@ -28,18 +28,18 @@ namespace UnityEngine.AzureSky
                 //DynamicGI.UpdateEnvironment();
             }
         }
-        
+
         private void Update()
         {
             // Not included in the build
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (reflectionProbe)
             {
                 reflectionProbe.mode = ReflectionProbeMode.Realtime;
                 reflectionProbe.refreshMode = refreshMode;
                 reflectionProbe.timeSlicingMode = timeSlicingMode;
             }
-            #endif
+#endif
 
             // Environment lighting
             RenderSettings.ambientIntensity = environmentIntensity;
@@ -49,7 +49,7 @@ namespace UnityEngine.AzureSky
             RenderSettings.ambientGroundColor = environmentGroundColor;
 
             if (!Application.isPlaying || state != AzureReflectionProbeState.On) return;
-            
+
             if (refreshMode == ReflectionProbeRefreshMode.EveryFrame)
             {
                 reflectionProbe.RenderProbe();
@@ -58,7 +58,7 @@ namespace UnityEngine.AzureSky
             }
 
             if (refreshMode != ReflectionProbeRefreshMode.ViaScripting) return;
-            
+
             m_timeSinceLastProbeUpdate += Time.deltaTime;
 
             if (!(m_timeSinceLastProbeUpdate >= refreshInterval)) return;
@@ -66,7 +66,7 @@ namespace UnityEngine.AzureSky
             //DynamicGI.UpdateEnvironment();
             m_timeSinceLastProbeUpdate = 0;
         }
-        
+
         public void UpdateReflectionProbe()
         {
             reflectionProbe.RenderProbe();
