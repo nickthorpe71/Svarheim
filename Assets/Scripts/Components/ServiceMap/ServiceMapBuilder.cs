@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Data;
 
-public class Builder : MonoBehaviour
+public class ServiceMapBuilder : MonoBehaviour
 {
 
     // TODO:
@@ -78,6 +78,7 @@ public class Builder : MonoBehaviour
 
         serviceObj.name = serviceData.Name;
         serviceScript.name = serviceData.Name;
+        serviceScript.serviceLanguage = serviceData.ServiceLanguage;
         Vector3 pos = serviceObj.transform.position;
         serviceScript.groundCamPos = new Vector3(pos.x + 89, pos.y + 143, pos.z - 52);
         serviceScript.skyCamPos = new Vector3(pos.x + 300, pos.y + 2900, pos.z);
@@ -95,6 +96,7 @@ public class Builder : MonoBehaviour
 
         endpointObj.name = endpointData.Name;
         endpointScript.name = endpointData.Name;
+        endpointScript.level = endpointData.Level;
         Vector3 pos = endpointObj.transform.position;
         endpointScript.camPos = new Vector3(pos.x, pos.y, pos.z);
 
